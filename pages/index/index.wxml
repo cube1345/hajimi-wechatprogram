@@ -1,8 +1,9 @@
 <!-- index.wxml -->
+
 <scroll-view class="scrollarea" scroll-y>
   <view class="container">
     <image class="bg-img" src="/img/background.jpg" style="position: absolute; left: 1rpx; top: 0rpx"></image>
-    
+    <!-- 此处标题 以下内容-->
     <view class="title">
       <view class="cat-TV">哈神话：耄耋</view>
     </view>

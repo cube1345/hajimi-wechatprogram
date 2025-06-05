@@ -1,5 +1,7 @@
 // index.js
+
 Page({
+  /* 此处存放数据 */
   data: {
     gifVisible: Array(16).fill(false),
     redNoteScore: 0,
