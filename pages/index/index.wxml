@@ -2,7 +2,7 @@
 <scroll-view class="scrollarea" scroll-y>
   <view class="container">
     <!-- 背景图片 -->
-    <image class="bg-img" src="/img/background.jpg"></image>
+    <image class="bg-img" src="/img/background.jpg" style="position: absolute; left: 1rpx; top: 0rpx"></image>
     
     <view class="title">
       <view class="cat-TV">哈神话：耄耋</view>
@@ -12,7 +12,7 @@
       class="music-button" 
       bindtap="toggleBackgroundMusic"
       hover-class="music-button-hover"
-    >
+     style="position: absolute; left: 543rpx; top: 19rpx; height: 58rpx; display: block; box-sizing: border-box; width: 147rpx">
       {{isMusicPlaying ? '暂停音乐' : '播放音乐'}}
     </button>
     
@@ -20,10 +20,10 @@
     <view class="redNoteScore">得分：{{redNoteScore}}</view>
     
     <!-- 战斗网格 -->
-    <view class="battle-grid">
+    <view class="battle-grid" style="position: relative; left: -1rpx; top: -60rpx">
       <block wx:for="{{16}}" wx:key="index">
         <view class="battle" data-index="{{index}}" bindtap="toggleGif">
-          <image class="battle-img" src="/img/battle.jpg"></image>
+          <image class="battle-img" src="/img/battle.jpg" style="position: absolute; left: 0rpx; top: -2rpx"></image>
           <image 
             class="cat-gif" 
             src="/img/attack.gif" 
