@@ -1,0 +1,45 @@
+<!-- index.wxml -->
+<scroll-view class="scrollarea" scroll-y>
+  <view class="container">
+    <!-- 背景图片 -->
+    <image class="bg-img" src="/img/background.jpg"></image>
+    
+    <view class="title">
+      <view class="cat-TV">哈神话：耄耋</view>
+    </view>
+    
+    <button 
+      class="music-button" 
+      bindtap="toggleBackgroundMusic"
+      hover-class="music-button-hover"
+    >
+      {{isMusicPlaying ? '暂停音乐' : '播放音乐'}}
+    </button>
+    
+    <!-- 分数显示 -->
+    <view class="redNoteScore">得分：{{redNoteScore}}</view>
+    
+    <!-- 战斗网格 -->
+    <view class="battle-grid">
+      <block wx:for="{{16}}" wx:key="index">
+        <view class="battle" data-index="{{index}}" bindtap="toggleGif">
+          <image class="battle-img" src="/img/battle.jpg"></image>
+          <image 
+            class="cat-gif" 
+            src="/img/attack.gif" 
+            wx:if="{{gifVisible[index]}}"
+          />
+        </view>
+      </block>
+    </view>
+    
+    <!-- 分数变化动画 -->
+    <view 
+      class="score-animation" 
+      style="left: {{scorePosition.left}}px; top: {{scorePosition.top}}px;"
+      wx:if="{{showScoreAnimation}}"
+    >
+      {{scoreChange}}
+    </view>
+  </view>
+</scroll-view>
