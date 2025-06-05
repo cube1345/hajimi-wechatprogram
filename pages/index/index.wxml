@@ -1,7 +1,6 @@
 <!-- index.wxml -->
 <scroll-view class="scrollarea" scroll-y>
   <view class="container">
-    <!-- 背景图片 -->
     <image class="bg-img" src="/img/background.jpg" style="position: absolute; left: 1rpx; top: 0rpx"></image>
     
     <view class="title">
@@ -15,11 +14,7 @@
      style="position: absolute; left: 543rpx; top: 19rpx; height: 58rpx; display: block; box-sizing: border-box; width: 147rpx">
       {{isMusicPlaying ? '暂停音乐' : '播放音乐'}}
     </button>
-    
-    <!-- 分数显示 -->
     <view class="redNoteScore">得分：{{redNoteScore}}</view>
-    
-    <!-- 战斗网格 -->
     <view class="battle-grid" style="position: relative; left: -1rpx; top: -60rpx">
       <block wx:for="{{16}}" wx:key="index">
         <view class="battle" data-index="{{index}}" bindtap="toggleGif">
@@ -32,8 +27,6 @@
         </view>
       </block>
     </view>
-    
-    <!-- 分数变化动画 -->
     <view 
       class="score-animation" 
       style="left: {{scorePosition.left}}px; top: {{scorePosition.top}}px;"

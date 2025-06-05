@@ -4,19 +4,14 @@ Page({
     gifVisible: Array(16).fill(false),
     redNoteScore: 0,
     timerId: null,
-    // GIF显示的持续时间
     gifDuration: 1500,
-    // 分数变化的具体数值
     scoreChange: 0,
-    // 音乐是否正在播放的状态
     isMusicPlaying: false,
     bgMusic: null
   },
 
   onLoad() {
-    // 启动随机显示GIF的逻辑
     this.startRandomShow();
-    // 初始化背景音乐
     this.initBackgroundMusic();
   },
 
@@ -71,7 +66,6 @@ Page({
     }
   },
 
-  // 随机显示GIF
   startRandomShow() {
     const gifDuration = Math.floor(Math.random() * 1200) + 500;
     this.setData({ gifDuration });
