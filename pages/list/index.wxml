@@ -1,0 +1,46 @@
+
+<!-- pages/menu/menu.wxml -->
+<view class="menu-container">
+  <!-- 顶部标题 -->
+  <view class="menu-header">
+    <text class="title">游戏菜单</text>
+  </view>
+
+  <!-- 菜单按钮组 -->
+  <view class="menu-buttons">
+    <view 
+      class="menu-btn" 
+      bindtap="startGame"
+      hover-class="menu-btn-hover"
+    >
+      <!-- <image src="/images/ic_start.png" mode="aspectFit"></image> -->
+      <text>开始游戏</text>
+    </view>
+
+    <!-- <view 
+      class="menu-btn" 
+      bindtap="toggleMusic"
+      hover-class="menu-btn-hover"
+    >
+      <image 
+        src="{{isMusicOn ? '/images/ic_music_on.png' : '/images/ic_music_off.png'}}" 
+        mode="aspectFit"
+      ></image>
+      <text>{{isMusicOn ? '关闭音乐' : '开启音乐'}}</text>
+    </view> -->
+
+    <!-- 排行榜按钮 -->
+    <view 
+      class="menu-btn" 
+      bindtap="goToRanking"
+      hover-class="menu-btn-hover"
+    >
+      <!-- <image src="/images/ic_ranking.png" mode="aspectFit"></image> -->
+      <text>排行榜</text>
+    </view>
+  </view>
+
+  <view class="menu-footer">
+    <text class="version">Version 1.0.0</text>
+  </view>
+</view>

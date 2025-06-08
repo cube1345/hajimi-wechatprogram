@@ -1,5 +1,7 @@
 // index.js
+
 Page({
+  /* 此处存放数据 */
   data: {
     gifVisible: Array(16).fill(false),
     redNoteScore: 0,
@@ -7,7 +9,8 @@ Page({
     gifDuration: 1500,
     scoreChange: 0,
     isMusicPlaying: false,
-    bgMusic: null
+    bgMusic: null,
+    isMenuVisible: false
   },
 
   onLoad() {
@@ -88,5 +91,17 @@ Page({
       }, this.data.gifDuration);
 
     }, delay);
+  },
+
+  toggleMenu() {
+    this.setData({
+      isMenuVisible: !this.data.isMenuVisible
+    });
+  },
+
+  closeMenu() {
+    this.setData({
+      isMenuVisible: false
+    });
   }
 })

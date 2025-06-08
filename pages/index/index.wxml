@@ -1,20 +1,28 @@
 <!-- index.wxml -->
+
 <scroll-view class="scrollarea" scroll-y>
   <view class="container">
     <image class="bg-img" src="/img/background.jpg" style="position: absolute; left: 1rpx; top: 0rpx"></image>
-    
+    <!-- 此处标题 以下内容-->
     <view class="title">
-      <view class="cat-TV">哈神话：耄耋</view>
+      <view class="cat-TV" style="position: relative; left: 0rpx; top: 30rpx">哈神话：耄耋</view>
     </view>
     
     <button 
       class="music-button" 
       bindtap="toggleBackgroundMusic"
       hover-class="music-button-hover"
-     style="position: absolute; left: 543rpx; top: 19rpx; height: 58rpx; display: block; box-sizing: border-box; width: 147rpx">
-      {{isMusicPlaying ? '暂停音乐' : '播放音乐'}}
+     style="position: absolute; left: 659rpx; top: -1rpx; height: 58rpx; display: block; box-sizing: border-box; width: 88rpx">
+      {{isMusicPlaying ? '停止' : '播放'}}
     </button>
-    <view class="redNoteScore">得分：{{redNoteScore}}</view>
+    <button 
+      class="menu-button" 
+      bindtap="toggleMenu"
+      hover-class="menu-button-hover"
+      style="position: absolute; right: 20rpx; top: -1rpx; z-index: 3; left: 494rpx; width: 88rpx; display: flex; box-sizing: border-box; height: 58rpx">
+      菜单
+    </button>
+    <view class="redNoteScore" style="position: fixed; left: 2rpx; top: 0rpx">得分：{{redNoteScore}}</view>
     <view class="battle-grid" style="position: relative; left: -1rpx; top: -60rpx">
       <block wx:for="{{16}}" wx:key="index">
         <view class="battle" data-index="{{index}}" bindtap="toggleGif">
@@ -33,6 +41,10 @@
       wx:if="{{showScoreAnimation}}"
     >
       {{scoreChange}}
+    </view>
+
+    <view class="menu-popup" wx:if="{{isMenuVisible}}">
+      <button class="close-button" bindtap="closeMenu" style="width: 80rpx; height: 80rpx">返回</button>
     </view>
   </view>
 </scroll-view>

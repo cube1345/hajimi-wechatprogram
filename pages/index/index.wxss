@@ -125,3 +125,47 @@
   background-color: rgba(255, 69, 0, 1);
   transform: scale(1.05);
 }
+
+.menu-button {
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  z-index: 3;
+  padding: 10rpx 20rpx;
+  background-color: rgba(255, 69, 0, 0.8);
+  color: white;
+  border-radius: 30rpx;
+  font-size: 24rpx;
+  border: none;
+  outline: none;
+}
+
+.menu-popup {
+  position: fixed;
+  top: 15%;
+  left: 15%;
+  width: 70%;
+  height: 70%;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 100;
+  border-radius: 10rpx;
+  box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.8);
+}
+
+.close-button {
+  position: absolute;
+  top: 10rpx;
+  left: 10rpx;
+  padding: 0;
+  background-color: rgba(255, 69, 0, 0.8);
+  color: white;
+  border-radius: 40rpx;
+  font-size: 25rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  outline: none;
+  overflow: hidden;
+  white-space: nowrap;
+}
