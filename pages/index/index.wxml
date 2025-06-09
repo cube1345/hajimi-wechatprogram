@@ -1,50 +1,63 @@
-<!-- index.wxml -->
-
 <scroll-view class="scrollarea" scroll-y>
   <view class="container">
-    <image class="bg-img" src="/img/background.jpg" style="position: absolute; left: 1rpx; top: 0rpx"></image>
-    <!-- 此处标题 以下内容-->
-    <view class="title">
-      <view class="cat-TV" style="position: relative; left: 0rpx; top: 30rpx">哈神话：耄耋</view>
-    </view>
+    <!-- 背景图 -->
+    <image class="bg-img" src="/img/background.jpg" style="position: absolute; left: 0rpx; top: 0rpx"></image>
     
-    <button 
-      class="music-button" 
-      bindtap="toggleBackgroundMusic"
-      hover-class="music-button-hover"
-     style="position: absolute; left: 659rpx; top: -1rpx; height: 58rpx; display: block; box-sizing: border-box; width: 88rpx">
-      {{isMusicPlaying ? '停止' : '播放'}}
+    <!-- 标题 -->
+    <view class="title">哈神话：耄耋</view>
+    
+    <!-- 音乐控制按钮 -->
+    <button class="music-button" bindtap="togglePlayPause" style="width: 91rpx; display: block; box-sizing: border-box; left: 635rpx; top: 20rpx; position: absolute">
+      {{isPlaying ? '暂停' : '播放'}}
     </button>
-    <button 
-      class="menu-button" 
-      bindtap="toggleMenu"
-      hover-class="menu-button-hover"
-      style="position: absolute; right: 20rpx; top: -1rpx; z-index: 3; left: 494rpx; width: 88rpx; display: flex; box-sizing: border-box; height: 58rpx">
-      菜单
-    </button>
-    <view class="redNoteScore" style="position: fixed; left: 2rpx; top: 0rpx">得分：{{redNoteScore}}</view>
-    <view class="battle-grid" style="position: relative; left: -1rpx; top: -60rpx">
+    
+    <!-- 菜单按钮 -->
+    <button class="menu-button" bindtap="toggleMenu" style="position: absolute; left: 409rpx; top: 20rpx; width: 91rpx; display: block; box-sizing: border-box; height: -20rpx">菜单</button>
+    
+    <!-- 得分显示 -->
+    <view class="redNoteScore">得分：{{redNoteScore}}</view>
+    
+    <!-- 游戏网格 -->
+    <view class="battle-grid">
       <block wx:for="{{16}}" wx:key="index">
         <view class="battle" data-index="{{index}}" bindtap="toggleGif">
-          <image class="battle-img" src="/img/battle.jpg" style="position: absolute; left: 0rpx; top: -2rpx"></image>
-          <image 
-            class="cat-gif" 
-            src="/img/attack.gif" 
-            wx:if="{{gifVisible[index]}}"
-          />
+          <image class="battle-img" src="/img/battle.jpg"></image>
+          <image class="cat-gif" src="/img/attack.gif" wx:if="{{gifVisible[index]}}"/>
         </view>
       </block>
     </view>
-    <view 
-      class="score-animation" 
-      style="left: {{scorePosition.left}}px; top: {{scorePosition.top}}px;"
-      wx:if="{{showScoreAnimation}}"
-    >
-      {{scoreChange}}
+    
+    <!-- 得分动画 -->
+    <view class="score-animation" style="left: {{scorePosition.left}}px; top: {{scorePosition.top}}px;" 
+          wx:if="{{showScoreAnimation}}">{{scoreChange}}</view>
+    
+    <!-- 音乐信息 -->
+    <view class="music-info" wx:if="{{currentMusic}}">
+      <text class="music-title">{{currentMusic.title}}</text>
+      <text class="music-artist">{{currentMusic.artist}}</text>
+      
+      <!-- 进度条 -->
+      <view class="progress-bar" bindtap="seekMusic">
+        <view class="progress" style='width: {{progressPercent}}'></view>
+        <text class="time">{{currentTime}}/{{totalTime}}</text>
+      </view>
     </view>
+    
 
     <view class="menu-popup" wx:if="{{isMenuVisible}}">
-      <button class="close-button" bindtap="closeMenu" style="width: 80rpx; height: 80rpx">返回</button>
+      <button class="close-button" bindtap="closeMenu" style="width: 15rpx">×</button>
+      
+      <view class="menu-title">仙之人兮列如麻</view>
+      
+      <view class="music-list">
+        <block wx:for="{{musicList}}" wx:key="index">
+          <view class="music-item {{currentMusic && currentMusic.id === item.id ? 'active' : ''}}" 
+                bindtap="playMusic" data-id="{{item.id}}">
+              <text>{{item.title}}</text>
+              <text>{{item.artist}}</text>
+          </view>
+        </block>
+      </view>
     </view>
   </view>
 </scroll-view>

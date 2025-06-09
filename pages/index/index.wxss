@@ -2,9 +2,6 @@
   position: relative;
   width: 100%;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .bg-img {
@@ -15,6 +12,44 @@
   height: 100%;
   z-index: 1;
   object-fit: cover;
+}
+
+.title {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  font-size: 80rpx;
+  font-weight: bold;
+  padding: 50rpx 0 30rpx;
+  color:black;
+}
+
+.music-button {
+  position: absolute;
+  top: 20rpx;
+  right: 120rpx;
+  z-index: 3;
+  padding: 10rpx 20rpx;
+  background-color: rgba(255, 69, 0, 0.8);
+  color: white;
+  border-radius: 30rpx;
+  font-size: 24rpx;
+  border: none;
+  outline: none;
+}
+
+.menu-button {
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  z-index: 3;
+  padding: 10rpx 20rpx;
+  background-color: rgba(255, 69, 0, 0.8);
+  color: white;
+  border-radius: 30rpx;
+  font-size: 24rpx;
+  border: none;
+  outline: none;
 }
 
 .redNoteScore {
@@ -28,25 +63,6 @@
   font-size: 28rpx;
   font-weight: bold;
   border-radius: 20rpx;
-  box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.3);
-}
-
-.title {
-  position: relative;
-  z-index: 3;
-  text-align: center;
-  font-weight: bold;
-  padding: 50rpx 0 30rpx;
-  color: black;
-  text-shadow: 0 0 10rpx rgba(255, 255, 255, 0.8);
-}
-
-.cat-TV{
-  font-size: 80rpx;
-}
-
-.haha{
-  font-size: 40rpx;
 }
 
 .battle-grid {
@@ -72,9 +88,7 @@
   overflow: hidden;
   box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.3);
   border: 2rpx solid #ffffff;
-  transition: transform 0.2s ease-in-out;
 }
-
 
 .battle-img, .cat-gif {
   position: absolute;
@@ -89,55 +103,49 @@
   z-index: 2;
 }
 
-@media (max-width: 750rpx) {
-  .battle-grid {
-    gap: 15rpx;
-    padding: 20rpx;
-    margin-top: 20rpx;
-  }
-
-  .redNoteScore {
-    font-size: 24rpx;
-    padding: 10rpx 20rpx;
-  }
-
-  .title {
-    font-size: 36rpx;
-    padding: 40rpx 0 25rpx;
-  }
-}
-
-.music-button {
-  position: absolute;
-  top: 20rpx;
-  right: 20rpx;
+.music-info {
+  position: relative;
   z-index: 3;
-  padding: 10rpx 20rpx;
-  background-color: rgba(255, 69, 0, 0.8);
-  color: white;
-  border-radius: 30rpx;
+  margin-top: 30rpx;
+  padding-left: 40rpx;
+  text-align: center;
+}
+
+.music-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 0 8rpx rgba(0,0,0,0.5);
+}
+
+.music-artist {
   font-size: 24rpx;
-  border: none;
-  outline: none;
+  color: #eee;
+  margin-top: 10rpx;
 }
 
-.music-button-hover {
-  background-color: rgba(255, 69, 0, 1);
-  transform: scale(1.05);
+.progress-bar {
+  position: relative;
+  height: 8rpx;
+  background-color: rgba(0,0,0,0.3);
+  border-radius: 4rpx;
+  margin: 20rpx 50rpx;
+  width: 80%;
 }
 
-.menu-button {
+.progress {
+  height: 100%;
+  background-color: #ff4500;
+  border-radius: 4rpx;
+  transition: width 0.3s;
+}
+
+.time {
   position: absolute;
-  top: 20rpx;
-  right: 20rpx;
-  z-index: 3;
-  padding: 10rpx 20rpx;
-  background-color: rgba(255, 69, 0, 0.8);
-  color: white;
-  border-radius: 30rpx;
-  font-size: 24rpx;
-  border: none;
-  outline: none;
+  right: -50rpx;
+  top: -15rpx;
+  font-size: 20rpx;
+  color: #fff;
 }
 
 .menu-popup {
@@ -146,26 +154,55 @@
   left: 15%;
   width: 70%;
   height: 70%;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.95);
   z-index: 100;
-  border-radius: 10rpx;
-  box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.8);
+  border-radius: 20rpx;
+  box-shadow: 0 0 30rpx rgba(0, 0, 0, 0.3);
+  padding: 30rpx;
+  overflow: hidden;
 }
 
 .close-button {
   position: absolute;
-  top: 10rpx;
-  left: 10rpx;
-  padding: 0;
+  top: 15rpx;        /* 距离顶部的距离 */
+  left: 15rpx;       /* 修改为 left 以固定在左上角 */
+  width: 40rpx;      /* 增大按钮尺寸 */
+  height: 40rpx;     /* 与宽度保持一致以形成圆形 */
   background-color: rgba(255, 69, 0, 0.8);
   color: white;
-  border-radius: 40rpx;
-  font-size: 25rpx;
+  border-radius: 20rpx;  /* 半径为宽度的一半 */
+  font-size: 32rpx;      /* 增大字体以便显示 "×" */
+  border: none;
+  outline: none;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: none;
-  outline: none;
-  overflow: hidden;
-  white-space: nowrap;
+  line-height: 1;        /* 确保文字垂直居中 */
+}
+
+.menu-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+  text-align: center;
+}
+
+.music-list {
+  height: calc(100% - 80rpx);
+  overflow-y: auto;
+}
+
+.music-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 10rpx;
+  border-bottom: 1rpx solid #eee;
+  font-size: 28rpx;
+}
+
+.music-item.active {
+  color: #ff4500;
+  font-weight: bold;
 }
