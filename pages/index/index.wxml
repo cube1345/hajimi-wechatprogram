@@ -1,10 +1,12 @@
+<!-- index.wxml -->
+
 <scroll-view class="scrollarea" scroll-y>
   <view class="container">
-    <!-- 背景图 -->
-    <image class="bg-img" src="/img/background.jpg" style="position: absolute; left: 0rpx; top: 0rpx"></image>
-    
-    <!-- 标题 -->
-    <view class="title">哈神话：耄耋</view>
+    <image class="bg-img" src="/img/background.jpg" style="position: absolute; left: 1rpx; top: 0rpx"></image>
+    <!-- 此处标题 以下内容-->
+    <view class="title">
+      <view class="cat-TV">哈神话：耄耋</view>
+    </view>
     
     <!-- 音乐控制按钮 -->
     <button class="music-button" bindtap="togglePlayPause" style="width: 91rpx; display: block; box-sizing: border-box; left: 635rpx; top: 20rpx; position: absolute">

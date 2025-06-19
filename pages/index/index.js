@@ -1,4 +1,5 @@
 Page({
+  /* 此处存放数据 */
   data: {
     // 游戏相关数据
     gifVisible: Array(16).fill(false),
