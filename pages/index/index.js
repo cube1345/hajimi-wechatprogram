@@ -20,7 +20,7 @@ Page({
       { id: 6, title: "套哈杆", artist: "全民制作人", src: "/music/tao-ha-gan.mp3" },
       { id: 7, title: "新基米醉酒", artist: "全民制作人", src: "/music/xin-ji-mi-zui-jiu.mp3" },
       { id: 8, title: "一键没", artist: "全民制作人", src: "/music/yi-jian-mei.mp3" },
-      { id: 9, title: "耄耋A梦", artist: "全民制作人", src: "/music/mao-dei-A-meng.mp3"}
+      { id: 9, title: "耄耋A梦", artist: "全民制作人", src: "/music/mao-die-A-meng.mp3"}
     ],
     currentMusic: null,
     currentIndex: 0,
