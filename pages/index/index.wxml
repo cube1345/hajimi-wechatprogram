@@ -59,5 +59,12 @@
         </block>
       </view>
     </view>
+
+    <!-- 游戏结束图片 -->
+    <view class="game-over" wx:if="{{isGameOver}}">
+      <view>飞舞哈基人</view>
+      <image src="/img/lose.jpg" mode="aspectFit"></image>
+      <button type="primary" style="position: relative; left: 0rpx; top: 84rpx; font-size: 50rpx; background-color: #ff4500;" bindtap="restartGame" >再爱一次</button>
+    </view>
   </view>
 </scroll-view>
