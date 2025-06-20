@@ -19,7 +19,9 @@ Page({
       { id: 6, title: "套哈杆", artist: "全民制作人", src: "/music/tao-ha-gan.mp3" },
       { id: 7, title: "新基米醉酒", artist: "全民制作人", src: "/music/xin-ji-mi-zui-jiu.mp3" },
       { id: 8, title: "一键没", artist: "全民制作人", src: "/music/yi-jian-mei.mp3" },
-      { id: 9, title: "耄耋A梦", artist: "全民制作人", src: "/music/mao-die-A-meng.mp3"}
+      { id: 9, title: "耄耋A梦", artist: "全民制作人", src: "/music/mao-die-A-meng.mp3"},
+      { id: 10, title: "哈拉基吧", artist: "全民制作人", src: "/music/ha-la-ji-ba.mp3"},
+      { id: 11, title: "舌尖上的哈基米", artist: "全民制作人", src: "/music/she-jian-shang-de-ji-mi.mp3"}
     ],
     currentMusic: null,
     currentIndex: 0,
@@ -75,7 +77,7 @@ Page({
   playEffect() {
     const { effectContext, isEffectPlaying } = this.data;
     if (effectContext && !isEffectPlaying && !this.data.isGamePaused) {
-        effectContext.seek(0); // 重置播放位置
+        effectContext.seek(0); 
         effectContext.play();
         this.setData({ isEffectPlaying: true });
     }
@@ -104,7 +106,7 @@ Page({
         }
       });
       clearTimeout(this.data.timerId);
-      this.stopEffect(); // 隐藏GIF时停止音效
+      this.stopEffect(); 
       this.startRandomShow();
     }
     this.checkGameOver();
@@ -243,7 +245,7 @@ Page({
             icon: 'none'
         });
     });
-    audioContext.volume = 0.05; // 背景音乐音量设为0.2
+    audioContext.volume = 0.05;
     this.setData({ audioContext });
   },
 
@@ -255,13 +257,14 @@ Page({
       const music = this.data.musicList[musicIndex];
       this.setData({ currentMusic: music, currentIndex: musicIndex });
 
+      // 切换音乐并确保从头开始播放
       this.data.audioContext.src = music.src;
+      this.data.audioContext.seek(0); // 新增：强制音乐从头开始
       this.data.audioContext.play();
 
+      // 关闭菜单并继续游戏（不重置分数）
       this.setData({ isMenuVisible: false });
-      if (!this.data.isGameOver && !this.data.isGamePaused) {
-        this.startRandomShow();
-      }
+      this.resumeGame();
     }
   },
 
